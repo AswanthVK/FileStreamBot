@@ -34,11 +34,15 @@ async def start(b, m):
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<i>Jᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ 🔐</i>",
+                    text="<b>Join my Updates Channel for use me.</b>",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("Jᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                                InlineKeyboardButton("Join Updates Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                            ],
+                            [
+                                InlineKeyboardButton("🔄 Refresh 🔄 ",
+                                                     url=f"https://t.me/NewFileToLinkBotBot.herokuapp.com/{usr_cmd}") # Chnage ur app name
                             ]
                         ]
                     ),
