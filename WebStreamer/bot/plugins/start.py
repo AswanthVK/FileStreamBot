@@ -89,7 +89,7 @@ async def start(b, m):
                             ],
                             [
                                 InlineKeyboardButton("🔄 Refresh / Try Again",
-                                                     url=f"https://t.me/F2LxBot.herokuapp.com/{usr_cmd}") # Chnage ur app name
+                                                     url=f"https://t.me/NewFileToLinkBotBot.herokuapp.com/{usr_cmd}") # Chnage ur app name
                             ]
                         ]
                     ),
@@ -130,22 +130,19 @@ async def start(b, m):
         msg_text ="""
 <i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>
 
-<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>
+<b>File Name:</b> <i>{}</i>
+<b>Size:</b> <i>{}</i>
 
-<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>
+<b>Download Link:</b> <i>{}</i>
 
-<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>
-
-<b>🚸 Nᴏᴛᴇ : Lɪɴᴋ ᴇxᴘɪʀᴇᴅ ɪɴ 24 ʜᴏᴜʀꜱ</b>
-
-<i>🍃 Bᴏᴛ Mᴀɪɴᴛᴀɪɴᴇᴅ Bʏ :</i> <b>@AvishkarPatil</b>
+<i>Note:- Link will be expire in 24hrs.</i>
 
 """
 
         await m.reply_text(
             text=msg_text.format(file_name, file_size, stream_link),
             parse_mode="HTML",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ 📥", url=stream_link)]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Now 📥", url=stream_link)]])
         )
 
 
@@ -155,7 +152,7 @@ async def help_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.BIN_CHANNEL,
-            f"**Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ **\n\n__Mʏ Nᴇᴡ Fʀɪᴇɴᴅ__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started Your Bot !!__"
+            f"**New User Joined **\n\n__New User__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started the Bot !!__"
         )
     if Var.UPDATES_CHANNEL is not None:
         try:
