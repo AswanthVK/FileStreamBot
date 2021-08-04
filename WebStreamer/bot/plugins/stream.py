@@ -77,7 +77,7 @@ async def private_receive_handler(c: Client, m: Message):
         
         filename = 0
         if(" " in file_name):
-            filename = file_name.replace(" ","%20"))
+            filename = file_name.replace(" ","%20")
         else:
             filename = file_name
 
