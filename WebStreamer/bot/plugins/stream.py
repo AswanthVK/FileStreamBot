@@ -1,6 +1,7 @@
 
 # (c) @Avishkarpatil 
 
+import os
 import asyncio
 from WebStreamer.bot import StreamBot
 from WebStreamer.utils.database import Database
