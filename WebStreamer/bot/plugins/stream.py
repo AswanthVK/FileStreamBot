@@ -75,7 +75,7 @@ async def private_receive_handler(c: Client, m: Message):
         elif m.audio:
             file_name = f"{m.audio.file_name}"
         
-        filename = 0
+        filename = None
         if(" " in file_name):
             filename = file_name.replace(" ","%20")
         else:
