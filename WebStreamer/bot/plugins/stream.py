@@ -73,6 +73,10 @@ async def private_receive_handler(c: Client, m: Message):
             file_name = f"{m.document.file_name}"
         elif m.audio:
             file_name = f"{m.audio.file_name}"
+        
+        if(" " in file_name):
+            os.rename(f, f.replace("%20"))
+            filename = file_name
 
         msg_text ="""
 <i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>
@@ -81,7 +85,7 @@ async def private_receive_handler(c: Client, m: Message):
 
 <b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>
 
-<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>
+<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}?start={}</i>
 
 <b>🚸 Nᴏᴛᴇ : Lɪɴᴋ ᴇxᴘɪʀᴇᴅ ɪɴ 24 ʜᴏᴜʀꜱ</b>
 
@@ -89,7 +93,7 @@ async def private_receive_handler(c: Client, m: Message):
 
         await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, stream_link),
+            text=msg_text.format(file_name, file_size, stream_link, filename),
             parse_mode="HTML", 
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ 📥", url=stream_link)]]),
